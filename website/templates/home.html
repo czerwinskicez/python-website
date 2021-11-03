@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+<h1>Notes:</h1>
+<div id="notes">
+    {% for note in user.notes %}
+
+    <div>
+    <a href="#" onClick="deleteNote({{note.id}})">[x]</a>
+    {{ note.data }}<hr></div>
+
+    {% endfor %}
+</div>
+<form method="POST">
+    <textarea name="note" id="note" cols="50" rows="10"></textarea><br>
+    <button type="submit" class="btn btn-primary">Add note</button>
+</form>
+
+{% endblock %}
